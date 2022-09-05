@@ -1,0 +1,37 @@
+modules:
+  jira:issuePanel:
+    - key: engagement-panel
+      function: panel
+      title: IssueEngagement
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  jira:projectPage:
+    - key: engagement-project-page
+      title: Engagement Score Overview
+      function: engagement-overview
+
+     
+  jira:customField:
+   - key: my-field
+     type: number
+     name: field
+     description: hji
+  
+  trigger:
+    - key: engagement-trigger
+      function: trigger
+      events: ['avi:jira:commented:issue'] 
+       
+     
+  function:
+    - key: panel
+      handler: index.panel
+    - key: engagement-overview
+      handler: index.engagementOverview
+    - key: trigger
+      handler: index.trigger
+permissions:
+  scopes:
+    - read:jira-work
+    - write:jira-work
+app:
+  id: ari:cloud:ecosystem::app/4eec43f0-1f44-459c-8bc5-71e9c59e3853
